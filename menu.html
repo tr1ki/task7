@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Bobo Pizza</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Header with Flexbox Navigation -->
+    <header class="header">
+        <div class="logo">
+            <h1>🍕 Bobo Pizza</h1>
+        </div>
+        <nav class="nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="menu.html" class="nav-link active">Menu</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <button class="theme-toggle" aria-label="Toggle theme">🌙 Night Mode</button>
+            <button class="cart-button" aria-label="Shopping cart">
+                🛒 Cart <span class="cart-count" style="display: none;">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Grid Layout -->
+    <div class="main-grid">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Menu Categories</h3>
+            <ul>
+                <li><a href="#pizzas">🍕 Pizzas</a></li>
+                <li><a href="#drinks">🥤 Drinks</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h2>Our Complete Menu</h2>
+            
+            <!-- Menu Filter -->
+            <div class="menu-filter-container" style="padding: 1.5rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 2rem; text-align: center;">
+                <h3>Filter Menu</h3>
+                <select class="menu-filter" style="padding: 0.75rem 1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; background: white; cursor: pointer;">
+                    <option value="all">All Items</option>
+                    <option value="pizzas">🍕 Pizzas Only</option>
+                    <option value="drinks">🥤 Drinks Only</option>
+                </select>
+                <div class="cart-total" style="margin-top: 1rem; font-size: 1.2rem; font-weight: bold; color: #d32f2f;"></div>
+            </div>
+            
+            <!-- Pizza Category with Flexbox Cards -->
+            <section id="pizzas" class="menu-section">
+                <h3>🍕 Pizzas</h3>
+                <div class="cards-container">
+                    <div class="card menu-item" data-category="pizza">
+                        <img src="assets/picture/pizza-margherita.jpg" alt="Margherita" class="card-image">
+                        <h4>Margherita</h4>
+                        <p>Classic tomato sauce, fresh mozzarella, and basil leaves</p>
+                        <span class="price">$12.99</span>
+                        <button class="card-button order-button">Order Now</button>
+                    </div>
+                    <div class="card menu-item" data-category="pizza">
+                        <img src="assets/picture/pizza-pepperoni.jpg" alt="Pepperoni" class="card-image">
+                        <h4>Pepperoni</h4>
+                        <p>Spicy pepperoni with mozzarella cheese</p>
+                        <span class="price">$15.99</span>
+                        <button class="card-button order-button">Order Now</button>
+                    </div>
+                    <div class="card menu-item" data-category="pizza">
+                        <img src="assets/picture/pizza-bbq.jpg" alt="BBQ Chicken" class="card-image">
+                        <h4>BBQ Chicken</h4>
+                        <p>Grilled chicken, BBQ sauce, red onions, and cilantro</p>
+                        <span class="price">$17.99</span>
+                        <button class="card-button order-button">Order Now</button>
+                    </div>
+                    <div class="card menu-item" data-category="pizza">
+                        <img src="assets/picture/menu-supreme.jpg" alt="Supreme" class="card-image">
+                        <h4>Supreme</h4>
+                        <p>Pepperoni, sausage, bell peppers, onions, and mushrooms</p>
+                        <span class="price">$19.99</span>
+                        <button class="card-button order-button">Order Now</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Drinks Category with Flexbox Cards -->
+            <section id="drinks" class="menu-section">
+                <h3>🥤 Drinks</h3>
+                <div class="cards-container">
+                    <div class="card menu-item" data-category="drink">
+                        <img src="assets/picture/drink-cola.jpg" alt="Coca Cola" class="card-image">
+                        <h4>Coca Cola</h4>
+                        <p>Classic refreshing cola drink</p>
+                        <span class="price">$2.99</span>
+                        <button class="card-button order-button">Order Now</button>
+                    </div>
+                    <div class="card menu-item" data-category="drink">
+                        <img src="assets/picture/drink-orange.jpg" alt="Orange Juice" class="card-image">
+                        <h4>Fresh Orange Juice</h4>
+                        <p>100% fresh squeezed orange juice</p>
+                        <span class="price">$3.99</span>
+                        <button class="card-button order-button">Order Now</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Bobo Pizza</h3>
+                <p>Delicious pizza fast delivery</p>
+            </div>
+            <div class="footer-section">
+                <h3>Team Member</h3>
+                <p>Balakarev Sergey</p>
+                <p>Urynbassar Mansur</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📞 8 777 009 09 09</p>
+                <p>📧 bobopizza@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bobo Pizza</p>
+        </div>
+    </footer>
+
+    <!-- Include JavaScript files -->
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/jquery-features.js"></script>
+</body>
+</html>

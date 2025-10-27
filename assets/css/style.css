@@ -1,0 +1,794 @@
+/*
+This CSS file implements all the requirements from the Flexbox + Grid assignment:
+- Part 1 Task 1: Flexbox navigation with logo and links
+- Part 1 Task 2: Flexbox cards with equal heights and hover effects
+- Part 2 Task 3: Grid layout with header, sidebar, main content, and footer
+- Part 2 Task 4: Grid image gallery with hover overlays
+- Part 3: Combined Flexbox and Grid for a complete responsive website
+*/
+
+/* Starting with basic styles to make everything look clean and consistent */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Part 1 Task 1: Here I made the header into a flexbox container to align logo and navigation links horizontally */
+.header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+    display: flex; /* Making header a flexbox container as required */
+    justify-content: space-between; /* Logo on left, links on right */
+    align-items: center; /* Vertically centering everything */
+}
+
+.logo h1 {
+    color: #d32f2f;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.nav {
+    display: flex; /* Making navigation links a flexbox row */
+    gap: 2rem; /* Adding consistent spacing between links as required */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: #d32f2f;
+    color: white;
+}
+
+/* Part 2 Task 3: I created the main page layout using CSS Grid with sidebar on left and main content on right */
+.main-grid {
+    display: grid; /* Making this a grid container as required */
+    grid-template-areas: 
+        "sidebar main-content"; /* Defining grid areas: sidebar left, main content right */
+    grid-template-columns: 250px 1fr; /* Sidebar fixed width, main content takes remaining space */
+    min-height: calc(100vh - 140px);
+    gap: 2rem; /* Adding consistent spacing between grid areas */
+    padding: 2rem;
+}
+
+.sidebar {
+    grid-area: sidebar; /* Assigning sidebar to its grid area on the left */
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+.sidebar h3 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 0.5rem;
+}
+
+.sidebar ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #d32f2f;
+    text-decoration: underline;
+}
+
+
+.main-content {
+    grid-area: main-content; /* Assigning main content to its grid area on the right */
+}
+
+/* This is just a nice welcome section to make the website look complete and engaging */
+.hero {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: white;
+    color: #d32f2f;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Part 1 Task 2: I made the cards container a flexbox so all cards appear in a row with equal heights */
+.features {
+    margin-bottom: 2rem;
+}
+
+.features h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.cards-container {
+    display: flex; /* Making cards container a flexbox as required */
+    gap: 2rem; /* Adding consistent gaps between cards */
+    justify-content: space-between; /* Cards appear in a row */
+}
+
+.card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1; /* Making all cards equal width */
+    display: flex; /* Making each card a flexbox container */
+    flex-direction: column; /* Stacking content vertically */
+    align-items: center; /* Centering content horizontally */
+    transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lifting card up on hover as required */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Adding shadow effect */
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-button {
+    background-color: #d32f2f;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+/* Part 2 Task 4: I created the image gallery using CSS Grid with equal columns and hover overlay effects */
+.gallery {
+    margin-bottom: 2rem;
+}
+
+.gallery h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.gallery-grid {
+    display: grid; /* Making gallery a grid container as required */
+    grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+    gap: 1rem; /* Adding consistent spacing between images */
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Scaling image slightly on hover */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* Adding shadow effect */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0); /* Showing caption overlay on hover as required */
+}
+
+.gallery-overlay h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.gallery-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Part 3: Footer spans across the bottom of the page to complete the website structure */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem 0 1rem;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-section h3 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: #bdc3c7;
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #34495e;
+    color: #bdc3c7;
+    margin-top: 1rem;
+}
+
+/* Additional styles for menu and contact pages to make them look consistent with the main page */
+.card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.menu-section {
+    margin-bottom: 3rem;
+}
+
+.menu-section h3 {
+    color: #d32f2f;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.price {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #d32f2f;
+    margin: 1rem 0;
+}
+
+.contact-cards {
+    margin-bottom: 3rem;
+}
+
+.contact-form-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.contact-form-section h3 {
+    color: #d32f2f;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #d32f2f;
+}
+
+.map-section {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.map-section h3 {
+    color: #d32f2f;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ===========================================
+   INTERACTIVE ELEMENTS AND ANIMATIONS
+   =========================================== */
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    background-color: #34495e;
+    transform: scale(1.05);
+}
+
+/* Cart Button */
+.cart-button {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+    position: relative;
+}
+
+.cart-button:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+.cart-count {
+    background-color: #ff9800;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+/* Interactive Buttons */
+.time-button, .reset-button, .submit-name {
+    transition: all 0.3s ease;
+}
+
+.time-button:hover, .reset-button:hover, .submit-name:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Rating Stars */
+.rating-star {
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.rating-star:hover {
+    transform: scale(1.2);
+}
+
+/* Gallery Images */
+.gallery-item img {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Menu Filter */
+.menu-filter {
+    transition: all 0.3s ease;
+}
+
+.menu-filter:focus {
+    outline: none;
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+}
+
+/* Form Inputs */
+.form-input:focus {
+    outline: none;
+    border-color: #d32f2f;
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1);
+    transform: scale(1.02);
+}
+
+/* Card Hover Effects */
+.card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Order Buttons */
+.order-button, .card-button {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.order-button:hover, .card-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.order-button:active, .card-button:active {
+    transform: scale(0.95);
+}
+
+/* Notification Styles */
+.notification {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ===========================================
+   RATING BLOCK STYLES (light + dark)
+   =========================================== */
+
+.rating-section {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08), 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.rating-section h2 {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.rating-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.rating-star { color: #d1d5db; }
+
+/* Dark variant to match provided example */
+.dark-theme .rating-section {
+    background-color: #000000; /* deep black panel */
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 1px #2c3440, 0 12px 40px rgba(0,0,0,0.55);
+}
+
+.dark-theme .rating-section h2 { color: #cfe8ff; }
+.dark-theme .rating-container { gap: 2.25rem; }
+.dark-theme .rating-star { color: #d1d5db; }
+.dark-theme .rating-star:hover { filter: drop-shadow(0 0 6px rgba(255,215,0,0.4)); }
+.dark-theme .rating-feedback { color: #fbbf24; }
+
+/* ===========================================
+   DARK THEME STYLES
+   =========================================== */
+
+.dark-theme {
+    background-color: #1a1a1a;
+    color: #f1f5f9; /* Lighter base text for better readability */
+}
+
+.dark-theme .header {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.dark-theme .nav-link {
+    color: #e5e7eb;
+}
+
+.dark-theme .nav-link:hover,
+.dark-theme .nav-link.active {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.dark-theme .sidebar {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.dark-theme .sidebar h3 {
+    color: #d32f2f;
+}
+
+.dark-theme .sidebar ul li a {
+    color: #b0b0b0;
+}
+
+.dark-theme .sidebar ul li a:hover {
+    color: #d32f2f;
+}
+
+.dark-theme .card {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.dark-theme .card h3,
+.dark-theme .card h4 {
+    color: #f3f4f6; /* Headings brighter in dark mode */
+}
+
+.dark-theme .card p {
+    color: #cbd5e1; /* Paragraph text slightly dimmer than headings */
+}
+
+.dark-theme .gallery-item {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.dark-theme .footer {
+    background-color: #1a1a1a;
+}
+
+.dark-theme .footer-section h3 {
+    color: #d32f2f;
+}
+
+.dark-theme .footer-section p {
+    color: #cbd5e1;
+}
+
+.dark-theme .form-input {
+    background-color: #2d2d2d;
+    border-color: #444;
+    color: #e5e7eb;
+}
+
+.dark-theme .form-input:focus {
+    border-color: #d32f2f;
+    background-color: #333;
+}
+
+.dark-theme .contact-form-section,
+.dark-theme .map-section,
+.dark-theme .menu-filter-container {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.dark-theme .rating-section {
+    background-color: #111827; /* High-contrast card for rating block */
+    border: 1px solid #374151;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* Improve readability of headings in dark theme */
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4 { color: #f8fafc; }
+
+/* Rating section title and feedback colors in dark theme */
+.dark-theme .rating-section h2 { color: #f8fafc; }
+.dark-theme .rating-feedback { color: #f59e0b; }
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .theme-toggle,
+    .cart-button {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+    
+    .cards-container {
+        flex-direction: column;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .main-grid {
+        grid-template-areas: 
+            "main-content"
+            "sidebar";
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar {
+        position: static;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .cta-button,
+    .time-button,
+    .reset-button {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+/* ===========================================
+   JQUERY FEATURES - ASSIGNMENT 7
+   =========================================== */
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
+
+/* Autocomplete Results */
+.autocomplete-item:hover {
+    background-color: #f0f0f0 !important;
+}
+
+/* Lazy Loading Images */
+.lazy-load {
+    transition: opacity 0.5s ease;
+}
+
+/* Dark theme adjustments */
+.dark-theme .autocomplete-item {
+    background-color: #2d2d2d !important;
+    color: white !important;
+    border-color: #444 !important;
+}
+
+.dark-theme .autocomplete-item:hover {
+    background-color: #3d3d3d !important;
+}
