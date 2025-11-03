@@ -14,7 +14,7 @@
         <div class="logo">
             <h1>🍕 Bobo Pizza</h1>
         </div>
-        <nav class="nav">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
             <a href="index.html" class="nav-link">Home</a>
             <a href="menu.html" class="nav-link active">Menu</a>
             <a href="contact.html" class="nav-link">Contact</a>
@@ -43,11 +43,12 @@
             <!-- Menu Filter -->
             <div class="menu-filter-container" style="padding: 1.5rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 2rem; text-align: center;">
                 <h3>Filter Menu</h3>
-                <select class="menu-filter" style="padding: 0.75rem 1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; background: white; cursor: pointer;">
-                    <option value="all">All Items</option>
-                    <option value="pizzas">🍕 Pizzas Only</option>
-                    <option value="drinks">🥤 Drinks Only</option>
-                </select>
+                <div class="menu-search-container" style="margin: 1rem auto; max-width: 560px;"></div>
+                <div class="category-pills" style="margin-top: 0.5rem;">
+                    <button class="category-pill active" data-filter="all">All</button>
+                    <button class="category-pill" data-filter="pizzas">Pizzas</button>
+                    <button class="category-pill" data-filter="drinks">Drinks</button>
+                </div>
                 <div class="cart-total" style="margin-top: 1rem; font-size: 1.2rem; font-weight: bold; color: #d32f2f;"></div>
             </div>
             
@@ -123,8 +124,8 @@
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>📞 8 777 009 09 09</p>
-                <p>📧 bobopizza@gmail.com</p>
+                <p>📞 <a href="tel:+77770090909" style="color: inherit; text-decoration: underline;">8 777 009 09 09</a></p>
+                <p>📧 <a href="mailto:bobopizza@gmail.com" style="color: inherit; text-decoration: underline;">bobopizza@gmail.com</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -132,8 +133,39 @@
         </div>
     </footer>
 
-    <!-- Include JavaScript files -->
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/jquery-features.js"></script>
+    <!-- Cart Drawer (shared) -->
+    <div class="cart-drawer" id="cart-drawer" aria-hidden="true">
+        <div class="cart-drawer-header">
+            <div style="font-weight:700">Your Cart</div>
+            <button class="cart-close" aria-label="Close cart" style="background:none;border:none;font-size:1.2rem;cursor:pointer">✕</button>
+        </div>
+        <div class="cart-drawer-body">
+            <div id="cart-items"></div>
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="checkout-summary"><span>Subtotal</span><span class="cart-subtotal">$0.00</span></div>
+            <div class="cart-drawer-actions">
+                <button class="continue-button" id="continue-shopping">Continue Shopping</button>
+                <button class="checkout-button" id="checkout-button">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vanilla core modules -->
+    <script src="assets/js/core-utils.js"></script>
+    <script src="assets/js/core-theme.js"></script>
+    <script src="assets/js/core-rating.js"></script>
+    <script src="assets/js/core-gallery.js"></script>
+    <script src="assets/js/core-menu.js"></script>
+    <script src="assets/js/core-accessibility.js"></script>
+    <script src="assets/js/core-contact.js"></script>
+    <script src="assets/js/core-data.js"></script>
+    <script src="assets/js/core-init.js"></script>
+
+    <!-- jQuery features -->
+    <script src="assets/js/jquery-search.js"></script>
+    <script src="assets/js/jquery-ux.js"></script>
+    <script src="assets/js/jquery-clipboard-lazy.js"></script>
+    <script src="assets/js/jquery-core.js"></script>
 </body>
 </html>
